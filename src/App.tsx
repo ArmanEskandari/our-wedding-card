@@ -122,7 +122,7 @@ function App() {
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 1.4, duration: 0.6 }}
-            className="flex justify-center items-center gap-8"
+            className="flex justify-center items-center gap-8 pb-[calc(env(safe-area-inset-bottom)+16px)]"
           >
             {/* Flip */}
             <div className="flex flex-col items-center gap-1">
