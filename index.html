@@ -1,3 +1,5 @@
+<!doctype html>
+<html lang="en">
 <head>
   <meta charset="UTF-8"/>
   <link href="vite.svg" rel="icon" type="image/svg+xml"/>
@@ -5,7 +7,7 @@
 
   <title>دعوت‌نامه دیجیتال: ساناز و آرمان 💍</title>
 
-  <!-- Open Graph -->
+  <!-- Open Graph (Telegram, iMessage, Facebook) -->
   <meta content="دعوت‌نامه دیجیتال: ساناز و آرمان 💍" property="og:title"/>
   <meta content="ساناز و آرمان شما را به جشن آغاز زندگی مشترکشان دعوت می‌کنند. همراه ما باشید در این لحظه‌های جادویی!"
         property="og:description"/>
@@ -15,6 +17,7 @@
   <meta content="1000" property="og:image:width"/>
   <meta content="525" property="og:image:height"/>
   <meta content="image/jpeg" property="og:image:type"/>
+  <meta content="fa_IR" property="og:locale"/>
 
   <!-- Twitter Card -->
   <meta content="summary_large_image" name="twitter:card"/>
@@ -23,15 +26,23 @@
         name="twitter:description"/>
   <meta content="https://armaneskandari.github.io/our-wedding-card/preview.jpg" name="twitter:image"/>
 
+  <!-- Optional PWA / iOS -->
+  <meta content="دعوت‌نامه ساناز و آرمان" name="apple-mobile-web-app-title"/>
+  <meta content="yes" name="apple-mobile-web-app-capable"/>
 
-  <!-- SEO description -->
+  <!-- SEO -->
   <meta content="دعوت‌نامه دیجیتال عروسی ساناز و آرمان – با عشق و زیبایی در کنار شما جشن می‌گیریم." name="description"/>
 
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com" rel="preconnect"/>
   <link crossorigin href="https://fonts.gstatic.com" rel="preconnect"/>
-  <link
-          href="https://fonts.googleapis.com/css2?family=Tangerine:wght@400;700&family=Vazirmatn:wght@100..900&display=swap"
-          rel="stylesheet"
-  />
+  <link href="https://fonts.googleapis.com/css2?family=Tangerine:wght@400;700&family=Vazirmatn:wght@100..900&display=swap"
+        rel="stylesheet"/>
 </head>
+
+
+<body>
+<div id="root"></div>
+<script src="src/main.tsx" type="module"></script>
+</body>
+</html>
