@@ -55,11 +55,22 @@ export function AudioPlayer({
     }
   };
 
-  const toggleMute = () => {
+  const toggleMute = async () => {
     const audio = audioRef.current;
     if (!audio) return;
-    audio.muted = !isMuted;
-    setIsMuted(!isMuted);
+
+    const newMuted = !isMuted;
+    audio.muted = newMuted;
+    setIsMuted(newMuted);
+
+    // If unmuting and the audio is not playing, play it
+    if (!newMuted && audio.paused) {
+      try {
+        await audio.play();
+      } catch (err) {
+        console.warn("Playback failed on unmute:", err);
+      }
+    }
   };
 
   return (
