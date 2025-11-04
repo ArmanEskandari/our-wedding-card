@@ -29,7 +29,7 @@ export function WeddingCardFront({
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.5 }}
-          className="text-center text-sm sm:text-base text-rose-800 leading-relaxed whitespace-pre-line"
+          className="text-center text-sm sm:text-base text-rose-800 leading-relaxed whitespace-pre-line h-full"
         >
           {invitationText}
         </motion.div>
@@ -39,7 +39,7 @@ export function WeddingCardFront({
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 1, delay: 0.8, type: "spring" }}
-          className="text-center space-y-2 sm:space-y-3 text-black"
+          className="text-center text-black h-full"
         >
           <p className="tangerine-bold text-6xl sm:text-7xl">{brideName}</p>
           <span className="tangerine-regular text-3xl sm:text-4xl">&</span>
@@ -51,7 +51,7 @@ export function WeddingCardFront({
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 1.1 }}
-          className="text-center text-rose-900 text-base sm:text-lg"
+          className="text-center text-rose-900 text-base sm:text-lg h-full flex items-end justify-center"
         >
           {date}
         </motion.div>

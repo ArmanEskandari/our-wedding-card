@@ -1,5 +1,4 @@
 import { motion } from "motion/react";
-import { MapPin } from "lucide-react";
 import backBgImage from "../../assets/images/invitation-Back-BG.jpg";
 
 interface WeddingCardBackProps {
@@ -33,7 +32,7 @@ export function WeddingCardBack({
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.8, delay: 0.6 }}
-          className="font-nastaliq text-4xl sm:text-5xl text-zinc-700 leading-snug whitespace-pre-line"
+          className="font-nastaliq text-4xl sm:text-5xl text-zinc-700 leading-snug whitespace-pre-line h-full"
         >
           {poem}
         </motion.div>
@@ -43,7 +42,7 @@ export function WeddingCardBack({
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.8 }}
-          className="text-zinc-600 text-xl sm:text-2xl space-y-2"
+          className="text-zinc-600 text-xl sm:text-2xl space-y-2 h-full"
         >
           <p>{dayOfWeek}</p>
           <div className="flex justify-center items-center gap-2 sm:gap-3">
@@ -63,10 +62,9 @@ export function WeddingCardBack({
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 1 }}
-          className="flex flex-row-reverse justify-center items-center gap-2 text-gray-600 text-base sm:text-lg"
+          className="flex flex-row-reverse justify-center items-end gap-2 text-gray-600 text-base sm:text-lg h-full"
         >
           <p>{address}</p>
-          <MapPin className="w-5 h-5 text-zinc-700" />
         </motion.div>
       </div>
     </div>

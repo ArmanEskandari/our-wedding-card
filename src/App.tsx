@@ -30,17 +30,18 @@ function App() {
 
   return (
     <div
-      className="relative flex flex-col items-center justify-center h-screen w-screen overflow-hidden bg-white"
+      className="relative flex flex-col items-center justify-center h-[100dvh] w-[100vw] overflow-hidden bg-white"
       style={{
         backgroundImage: `url(${textureBgImage})`,
         backgroundSize: "cover",
         backgroundPosition: "center",
+        backgroundRepeat: "no-repeat",
       }}
     >
-      {/* Animated background lights */}
+      {/* Animated Background */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <motion.div
-          animate={{ scale: [1, 1.15, 1], opacity: [0.05, 0.1, 0.05] }}
+          animate={{ scale: [1, 1.1, 1], opacity: [0.05, 0.1, 0.05] }}
           transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
           className="absolute top-8 right-8 w-40 h-40 bg-amber-900 rounded-full blur-3xl"
         />
@@ -51,11 +52,11 @@ function App() {
         />
       </div>
 
-      {/* Main content */}
-      <div className="relative z-10 w-full max-w-sm sm:max-w-md md:max-w-lg p-3">
-        <div className="perspective-1000 mb-6">
+      {/* Card Container */}
+      <div className="relative z-10 flex flex-col items-center justify-center w-full h-full px-3">
+        <div className="perspective-1000 flex justify-center items-center w-full h-[85vh] sm:h-[80vh]">
           <motion.div
-            className="relative w-full aspect-[3/4] md:aspect-[4/5]"
+            className="relative w-[90vw] max-w-sm sm:max-w-md aspect-[3/4] md:aspect-[4/5]"
             style={{ transformStyle: "preserve-3d" }}
             animate={{ rotateY: isFlipped ? 180 : 0 }}
             transition={{
@@ -63,7 +64,7 @@ function App() {
               ease: [0.43, 0.13, 0.23, 0.96],
             }}
           >
-            {/* Front */}
+            {/* Front Side */}
             <div
               className="absolute inset-0"
               style={{ backfaceVisibility: "hidden" }}
@@ -76,7 +77,7 @@ function App() {
               />
             </div>
 
-            {/* Back */}
+            {/* Back Side */}
             <div
               className="absolute inset-0"
               style={{
@@ -96,24 +97,24 @@ function App() {
           </motion.div>
         </div>
 
-        {/* Action buttons */}
+        {/* Action Buttons */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 1.5, duration: 0.6 }}
-          className="flex justify-center items-center gap-8"
+          transition={{ delay: 1.4, duration: 0.6 }}
+          className="mt-4 flex justify-center items-center gap-8"
         >
-          {/* Flip card */}
+          {/* Flip */}
           <div className="flex flex-col items-center gap-1">
             <Button
               onClick={() => setIsFlipped(!isFlipped)}
               size="icon"
               variant="outline"
-              className="rounded-full bg-white/90 backdrop-blur-md border border-gray-200 shadow-md hover:shadow-lg transition-all relative"
+              className="rounded-full bg-white/90 backdrop-blur-md border border-gray-200 shadow-md hover:shadow-lg transition-all"
             >
-              <FlipHorizontal className="w-4 h-4 text-rose-600" />
+              <FlipHorizontal className="w-5 h-5 text-rose-600" />
             </Button>
-            <span className="text-sm text-gray-400">چرخش کارت</span>
+            <span className="text-xs sm:text-sm text-gray-500">چرخش کارت</span>
           </div>
 
           {/* Navigation */}
@@ -122,11 +123,11 @@ function App() {
               onClick={() => setNavigationOpen(true)}
               size="icon"
               variant="outline"
-              className="rounded-full bg-white/90 backdrop-blur-md hover:bg-white border border-gray-200 shadow-md hover:shadow-lg"
+              className="rounded-full bg-white/90 backdrop-blur-md border border-gray-200 shadow-md hover:shadow-lg transition-all"
             >
-              <Navigation className="w-4 h-4 animate-pulse text-blue-600" />
+              <Navigation className="w-5 h-5 animate-pulse text-blue-600" />
             </Button>
-            <span className="text-sm text-gray-400">مسیریابی</span>
+            <span className="text-xs sm:text-sm text-gray-500">مسیریابی</span>
           </div>
         </motion.div>
       </div>
