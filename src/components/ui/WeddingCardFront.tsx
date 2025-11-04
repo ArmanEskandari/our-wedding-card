@@ -1,5 +1,7 @@
 import { motion } from "motion/react";
 
+import frontBgImage from "../../assets/images/invitation-173-Front-BG.jpg";
+
 interface WeddingCardFrontProps {
   brideName: string;
   groomName: string;
@@ -17,7 +19,7 @@ export function WeddingCardFront({
     <div
       className="relative w-full h-full from-rose-50 via-pink-50 to-purple-50 rounded-2xl overflow-hidden"
       style={{
-        backgroundImage: `url(src/assets/images/invitation-173-Front-BG.jpg)`,
+        backgroundImage: `url(${frontBgImage})`,
         backgroundRepeat: "no-repeat",
         backgroundPosition: "center center",
         backgroundSize: "cover",

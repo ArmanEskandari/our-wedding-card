@@ -1,5 +1,6 @@
 import { motion } from "motion/react";
 import { MapPin } from "lucide-react";
+import backBgImage from "../../assets/images/invitation-Back-BG.jpg";
 
 interface WeddingCardBackProps {
   dayOfWeek: string;
@@ -12,7 +13,7 @@ interface WeddingCardBackProps {
 
 export function WeddingCardBack({
   dayOfWeek,
-  date,
+  // date,
   timeFrom,
   timeTo,
   address,
@@ -22,7 +23,7 @@ export function WeddingCardBack({
     <div
       className="relative w-full h-full from-rose-50 via-pink-50 to-purple-50 rounded-2xl overflow-hidden"
       style={{
-        backgroundImage: `url(src/assets/images/invitation-Back-BG.jpg)`,
+        backgroundImage: `url(${backBgImage})`,
         backgroundRepeat: "no-repeat",
         backgroundPosition: "center center",
         backgroundSize: "cover",

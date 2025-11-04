@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { motion } from "motion/react";
+import textureBgImage from "./assets/images/flower-background.jpg";
 
 import "./App.css";
 import { WeddingCardBack } from "./components/ui/WeddingCardBack";
@@ -12,7 +13,7 @@ import { AudioPlayer } from "./components/AudioPlayer.tsx";
 function App() {
   const [isFlipped, setIsFlipped] = useState(false);
   const [navigationOpen, setNavigationOpen] = useState(false);
-  const [rsvpOpen, setRsvpOpen] = useState(false);
+  // const [rsvpOpen, setRsvpOpen] = useState(false);
 
   // Wedding Details - Customize these
   const weddingData = {
@@ -37,7 +38,7 @@ function App() {
       <div
         className="h-screen w-screen flex flex-col items-center justify-center relative overflow-hidden bg-white"
         style={{
-          backgroundImage: `url(src/assets/images/flower-background.jpg)`,
+          backgroundImage: `url(${textureBgImage})`,
           backgroundRepeat: "no-repeat",
           backgroundPosition: "center center",
           backgroundSize: "cover",
