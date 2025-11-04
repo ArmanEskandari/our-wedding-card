@@ -55,19 +55,32 @@ function App() {
       {/* Render card content only when modal is closed */}
       {!audioModalOpen && (
         <div className="relative z-10 flex flex-col items-center justify-center w-full h-full px-3">
-          <div className="perspective-1000 flex justify-center items-center w-full h-[85vh] sm:h-[80vh]">
+          <div className="perspective-1000 flex justify-center items-center w-full h-[80vh] sm:h-[75vh]">
             <motion.div
               className="relative w-[90vw] max-w-sm sm:max-w-md aspect-[3/4] md:aspect-[4/5]"
-              style={{ transformStyle: "preserve-3d" }}
+              style={{
+                transformStyle: "preserve-3d",
+                perspective: 1000,
+                WebkitTransformStyle: "preserve-3d",
+                WebkitPerspective: "1000px",
+              }}
               animate={{ rotateY: isFlipped ? 180 : 0 }}
               transition={{
                 duration: 0.8,
                 ease: [0.43, 0.13, 0.23, 0.96],
               }}
             >
+              {/* Front face */}
               <div
-                className="absolute inset-0"
-                style={{ backfaceVisibility: "hidden" }}
+                className="absolute inset-0 z-10"
+                style={{
+                  backfaceVisibility: "hidden",
+                  WebkitBackfaceVisibility: "hidden",
+                  transform: "rotateY(0deg)",
+                  WebkitTransform: "rotateY(0deg)",
+                  transformStyle: "preserve-3d",
+                  WebkitTransformStyle: "preserve-3d",
+                }}
               >
                 <WeddingCardFront
                   brideName={weddingData.brideName}
@@ -77,11 +90,16 @@ function App() {
                 />
               </div>
 
+              {/* Back face */}
               <div
-                className="absolute inset-0"
+                className="absolute inset-0 z-20"
                 style={{
                   backfaceVisibility: "hidden",
+                  WebkitBackfaceVisibility: "hidden",
                   transform: "rotateY(180deg)",
+                  WebkitTransform: "rotateY(180deg)",
+                  transformStyle: "preserve-3d",
+                  WebkitTransformStyle: "preserve-3d",
                 }}
               >
                 {(isFlipped || backFlippedRef.current) && (
@@ -104,7 +122,7 @@ function App() {
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 1.4, duration: 0.6 }}
-            className="mt-4 flex justify-center items-center gap-8"
+            className="flex justify-center items-center gap-8"
           >
             {/* Flip */}
             <div className="flex flex-col items-center gap-1">
