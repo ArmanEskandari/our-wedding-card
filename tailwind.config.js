@@ -5,6 +5,7 @@ export default {
     extend: {
       fontFamily: {
         nastaliq: ["IranNastaliq", "serif"],
+        ephesis: ["Ephesis", "cursive"], // fallback to cursive
         vazir: ["Vazirmatn", "serif"],
       },
     },

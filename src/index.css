@@ -2,9 +2,9 @@
 @tailwind components;
 @layer utilities {
   .h-screen-safe {
-    height: 100svh;
-    height: 100dvh;
     height: 100vh;
+    height: 100dvh;
+    height: 100svh;
   }
 }
 
@@ -17,6 +17,14 @@
   font-style: normal;
   font-display: swap;
 }
+
+@font-face {
+  font-family: "Ephesis";
+  src: url("./assets/fonts/ephesis/Ephesis-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
+
 
 /* Prevent flickering on iOS Safari during 3D transforms */
 * {
@@ -102,16 +110,4 @@ button:focus-visible {
   button {
     background-color: #f9f9f9;
   }
-}
-
-.tangerine-regular {
-  font-family: "Tangerine", cursive;
-  font-weight: 400;
-  font-style: normal;
-}
-
-.tangerine-bold {
-  font-family: "Tangerine", cursive;
-  font-weight: 700;
-  font-style: normal;
 }

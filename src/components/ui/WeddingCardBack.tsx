@@ -45,14 +45,14 @@ export function WeddingCardBack({
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.8 }}
-          className="text-zinc-600 text-xl sm:text-2xl space-y-2 h-full"
+          className="text-zinc-600 text-md sm:text-lg space-y-2 h-full font-vazir"
         >
           <p>{dayOfWeek}</p>
           <div className="flex justify-center items-center gap-2 sm:gap-3">
             <div className="border-y-2 border-black flex-1 max-w-24 py-1">
               آذر
             </div>
-            <div className="text-black text-6xl sm:text-8xl">۵</div>
+            <div className="text-black text-5xl sm:text-6xl">۵</div>
             <div className="border-y-2 border-black flex-1 max-w-24 py-1">
               ۱۴۰۴
             </div>
@@ -67,8 +67,8 @@ export function WeddingCardBack({
           transition={{ duration: 0.6, delay: 1 }}
           className="flex flex-col justify-end items-end gap-2 text-gray-600 h-full"
         >
-          <div className="flex items-center justify-center gap-2 py-1 w-full h-fit">
-            <MapPin />
+          <div className="flex items-center justify-center gap-1 py-1 w-full h-fit">
+            <MapPin size={20} />
             <p className="text-base sm:text-lg">{gardenHall}</p>
           </div>
           <p className="text-sm sm:text-sm">{address}</p>

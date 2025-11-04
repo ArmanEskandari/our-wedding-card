@@ -1,10 +1,15 @@
 import { useEffect, useRef, useState } from "react";
-import { AnimatePresence, motion } from "motion/react";
 import { Button } from "./ui/Button";
 import { Dialog } from "./ui/Dialog";
-import { Music, Play, Volume2, VolumeX } from "lucide-react";
+import { Music, Volume2, VolumeX } from "lucide-react";
 
-// components/AudioPlayer.tsx
+const musicSource = {
+  sattar:
+    "https://dlrooz.musitraf.com/2024/music/8/New/sattar%20Arosi.mp3?src=dlrooz",
+  edSheeran:
+    "https://dl.musicdel.ir/tag/music/1404/01/14/Ed%20Sheeran%20-%20Perfect%20(128).mp3",
+};
+
 export function AudioPlayer({
   isOpen,
   onOpenChange,
@@ -12,9 +17,9 @@ export function AudioPlayer({
   isOpen: boolean;
   onOpenChange: (open: boolean) => void;
 }) {
-  const [isReady, setIsReady] = useState(false);
+  const [, setIsReady] = useState(false);
   const [, setIsPlaying] = useState(false);
-  const [isMuted, setIsMuted] = useState(true);
+  // const [isMuted, setIsMuted] = useState(true);
   const audioRef = useRef<HTMLAudioElement>(null);
 
   useEffect(() => {
@@ -48,99 +53,95 @@ export function AudioPlayer({
       await audio.play();
       setIsReady(true);
       setIsPlaying(true);
-      setIsMuted(false);
+      // setIsMuted(false);
       onOpenChange(false);
     } catch (err) {
       console.warn("Playback failed:", err);
     }
   };
 
-  const toggleMute = async () => {
-    const audio = audioRef.current;
-    if (!audio) return;
-
-    const newMuted = !isMuted;
-    audio.muted = newMuted;
-    setIsMuted(newMuted);
-
-    // If unmuting and the audio is not playing, play it
-    if (!newMuted && audio.paused) {
-      try {
-        await audio.play();
-      } catch (err) {
-        console.warn("Playback failed on unmute:", err);
-      }
-    }
-  };
+  // const toggleMute = async () => {
+  //   const audio = audioRef.current;
+  //   if (!audio) return;
+  //
+  //   const newMuted = !isMuted;
+  //   audio.muted = newMuted;
+  //   setIsMuted(newMuted);
+  //
+  //   // If unmuting and the audio is not playing, play it
+  //   if (!newMuted && audio.paused) {
+  //     try {
+  //       await audio.play();
+  //     } catch (err) {
+  //       console.warn("Playback failed on unmute:", err);
+  //     }
+  //   }
+  // };
 
   return (
     <>
       {/* Floating Audio Controls */}
-      <div className="fixed top-4 right-4 z-50">
-        <AnimatePresence mode="wait">
-          {!isReady ? (
-            <motion.div
-              key="start"
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
-              exit={{ opacity: 0, scale: 0.8 }}
-              transition={{ duration: 0.4 }}
-            >
-              <Button
-                onClick={handleUserStart}
-                size="icon"
-                className="rounded-full p-3 bg-rose-500 hover:bg-rose-600 text-white shadow-lg"
-              >
-                <Play className="h-4 w-4" />
-              </Button>
-            </motion.div>
-          ) : (
-            <motion.div
-              key="mute-toggle"
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
-              exit={{ opacity: 0, scale: 0.8 }}
-              transition={{ duration: 0.4 }}
-            >
-              <Button
-                onClick={toggleMute}
-                size="icon"
-                className="rounded-full p-3 bg-white/90 backdrop-blur-sm hover:bg-white shadow-lg border border-rose-200 hover:border-rose-300"
-              >
-                <AnimatePresence mode="wait">
-                  {isMuted ? (
-                    <motion.div
-                      key="muted"
-                      initial={{ scale: 0 }}
-                      animate={{ scale: 1 }}
-                      exit={{ scale: 0 }}
-                      transition={{ duration: 0.2 }}
-                    >
-                      <VolumeX className="h-4 w-4 text-rose-600" />
-                    </motion.div>
-                  ) : (
-                    <motion.div
-                      key="playing"
-                      initial={{ scale: 0 }}
-                      animate={{ scale: 1 }}
-                      exit={{ scale: 0 }}
-                      transition={{ duration: 0.2 }}
-                    >
-                      <Volume2 className="h-4 w-4 text-rose-600" />
-                    </motion.div>
-                  )}
-                </AnimatePresence>
-              </Button>
-            </motion.div>
-          )}
-        </AnimatePresence>
+      {/*<div className="fixed top-4 right-4 z-50">*/}
+      {/*  <AnimatePresence mode="wait">*/}
+      {/*    {!isReady ? (*/}
+      {/*      <motion.div*/}
+      {/*        key="start"*/}
+      {/*        initial={{ opacity: 0, scale: 0.8 }}*/}
+      {/*        animate={{ opacity: 1, scale: 1 }}*/}
+      {/*        exit={{ opacity: 0, scale: 0.8 }}*/}
+      {/*        transition={{ duration: 0.4 }}*/}
+      {/*      >*/}
+      {/*        <Button*/}
+      {/*          onClick={handleUserStart}*/}
+      {/*          size="icon"*/}
+      {/*          className="rounded-full p-3 bg-rose-500 hover:bg-rose-600 text-white shadow-lg"*/}
+      {/*        >*/}
+      {/*          <Play className="h-4 w-4" />*/}
+      {/*        </Button>*/}
+      {/*      </motion.div>*/}
+      {/*    ) : (*/}
+      {/*      <motion.div*/}
+      {/*        key="mute-toggle"*/}
+      {/*        initial={{ opacity: 0, scale: 0.8 }}*/}
+      {/*        animate={{ opacity: 1, scale: 1 }}*/}
+      {/*        exit={{ opacity: 0, scale: 0.8 }}*/}
+      {/*        transition={{ duration: 0.4 }}*/}
+      {/*      >*/}
+      {/*        <Button*/}
+      {/*          onClick={toggleMute}*/}
+      {/*          size="icon"*/}
+      {/*          className="rounded-full p-3 bg-white/90 backdrop-blur-sm hover:bg-white shadow-lg border border-rose-200 hover:border-rose-300"*/}
+      {/*        >*/}
+      {/*          <AnimatePresence mode="wait">*/}
+      {/*            {isMuted ? (*/}
+      {/*              <motion.div*/}
+      {/*                key="muted"*/}
+      {/*                initial={{ scale: 0 }}*/}
+      {/*                animate={{ scale: 1 }}*/}
+      {/*                exit={{ scale: 0 }}*/}
+      {/*                transition={{ duration: 0.2 }}*/}
+      {/*              >*/}
+      {/*                <VolumeX className="h-4 w-4 text-rose-600" />*/}
+      {/*              </motion.div>*/}
+      {/*            ) : (*/}
+      {/*              <motion.div*/}
+      {/*                key="playing"*/}
+      {/*                initial={{ scale: 0 }}*/}
+      {/*                animate={{ scale: 1 }}*/}
+      {/*                exit={{ scale: 0 }}*/}
+      {/*                transition={{ duration: 0.2 }}*/}
+      {/*              >*/}
+      {/*                <Volume2 className="h-4 w-4 text-rose-600" />*/}
+      {/*              </motion.div>*/}
+      {/*            )}*/}
+      {/*          </AnimatePresence>*/}
+      {/*        </Button>*/}
+      {/*      </motion.div>*/}
+      {/*    )}*/}
+      {/*  </AnimatePresence>*/}
 
-        <audio
-          ref={audioRef}
-          preload="auto"
-          src="https://dl.musicdel.ir/tag/music/1404/01/14/Ed%20Sheeran%20-%20Perfect%20(128).mp3"
-        />
-      </div>
+      <audio ref={audioRef} preload="auto" src={musicSource.sattar} />
+      {/*</div>*/}
 
       {/* Intro Dialog */}
       <Dialog
@@ -150,16 +151,16 @@ export function AudioPlayer({
       >
         <div className="flex flex-col items-center justify-center space-y-6 text-center">
           <Music className="w-10 h-10 text-rose-500" />
-          <p className="text-sm text-gray-600">
-            لطفاً انتخاب کنید که آیا تمایل به پخش موزیک پس‌زمینه دارید یا خیر.
-          </p>
+          {/*<p className="text-sm text-gray-600">*/}
+          {/*  لطفاً انتخاب کنید که آیا تمایل به پخش موزیک پس‌زمینه دارید یا خیر.*/}
+          {/*</p>*/}
 
           <div className="flex items-center justify-center gap-6 mt-4">
             <Button
               variant="outline"
               size="icon"
               onClick={() => {
-                setIsMuted(true);
+                // setIsMuted(true);
                 setIsReady(true);
                 onOpenChange(false);
               }}

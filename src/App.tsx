@@ -18,18 +18,20 @@ function App() {
   const weddingData = {
     brideName: "Sanaz",
     groomName: "Arman",
-    invitationText:
-      "در کنار خانواده‌هایمان،\nاز شما دعوت می‌کنیم تا در شادی پیوندمان سهیم باشید",
+    invitationText: "از شما دعوت می‌کنیم،\nتا در شادی پیوندمان سهیم باشید",
+    // "Join us to celebrate\nthe love of",
     date: "چهارشنبه، ۵ آذر ۱۴۰۴",
+    // date: "November 26, 2025",
     dayOfWeek: "چهارشنبه",
-    fullDate: "June 15, 2024",
+    fullDate: "November 26, 2025",
     timeFrom: "از ساعت ۱۹",
-    timeTo: "۲۳",
+    timeTo: "پاسی از شب",
     gardenHall: "عمارت رویال",
     address: "\nشهریار - بزرگراه باغستان - گلها - بنفشه",
     poem: `با تو، هر لحظه بهار است،\nحتی در میان زمستان`,
   };
-  const backFlippedRef = useRef(false); // ✅ proper ref initialization
+
+  const backFlippedRef = useRef(false);
 
   useEffect(() => {
     if (isFlipped) {
@@ -39,7 +41,7 @@ function App() {
 
   return (
     <div
-      className="relative flex flex-col items-center justify-center h-screen-safe w-[100vw] overflow-hidden bg-white"
+      className="relative flex flex-col items-center justify-center h-screen-safe w-[100vw] overflow-hidden"
       style={{
         backgroundImage: `url(${textureBgImage})`,
         backgroundSize: "cover",
@@ -47,14 +49,11 @@ function App() {
         backgroundRepeat: "no-repeat",
       }}
     >
-      {/* Animated Background */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        {/* same motion circles */}
-      </div>
+      <div className="absolute inset-0 bg-black/20 backdrop-blur-xs z-0" />
 
       {/* Render card content only when modal is closed */}
       {!audioModalOpen && (
-        <div className="relative z-10 flex flex-col items-center justify-center w-full h-full px-3">
+        <div className="relative z-10 flex flex-col items-center justify-center w-full h-full px-3 gap-2">
           <div className="perspective-1000 flex justify-center items-center w-full h-[80vh] sm:h-[75vh]">
             <motion.div
               className="relative w-[90vw] max-w-sm sm:max-w-md aspect-[3/4] md:aspect-[4/5]"
@@ -136,7 +135,7 @@ function App() {
 
                 <FlipHorizontal className="w-5 h-5 text-rose-600 before:animate-ping" />
               </Button>
-              <span className="text-xs sm:text-sm text-gray-500">
+              <span className="text-xs sm:text-sm text-neutral-950">
                 چرخش کارت
               </span>
             </div>
@@ -151,7 +150,9 @@ function App() {
               >
                 <Navigation className="w-5 h-5 text-blue-600" />
               </Button>
-              <span className="text-xs sm:text-sm text-gray-500">مسیریابی</span>
+              <span className="text-xs sm:text-sm text-neutral-950">
+                مسیریابی
+              </span>
             </div>
           </motion.div>
         </div>
