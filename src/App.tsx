@@ -39,7 +39,7 @@ function App() {
 
   return (
     <div
-      className="relative flex flex-col items-center justify-center h-[100svh] w-[100vw] overflow-hidden bg-white"
+      className="relative flex flex-col items-center justify-center h-screen-safe w-[100vw] overflow-hidden bg-white"
       style={{
         backgroundImage: `url(${textureBgImage})`,
         backgroundSize: "cover",
