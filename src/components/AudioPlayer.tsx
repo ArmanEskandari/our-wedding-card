@@ -4,14 +4,18 @@ import { Button } from "./ui/Button";
 import { Dialog } from "./ui/Dialog";
 import { Music, Play, Volume2, VolumeX } from "lucide-react";
 
-export function AudioPlayer() {
+// components/AudioPlayer.tsx
+export function AudioPlayer({
+  isOpen,
+  onOpenChange,
+}: {
+  isOpen: boolean;
+  onOpenChange: (open: boolean) => void;
+}) {
   const [isReady, setIsReady] = useState(false);
-  const [isPlaying, setIsPlaying] = useState(false);
+  const [, setIsPlaying] = useState(false);
   const [isMuted, setIsMuted] = useState(true);
-  const [isOpen, setIsOpen] = useState(true);
   const audioRef = useRef<HTMLAudioElement>(null);
-
-  const onOpenChange = (open: boolean) => setIsOpen(open);
 
   useEffect(() => {
     const audio = audioRef.current;
@@ -45,17 +49,28 @@ export function AudioPlayer() {
       setIsReady(true);
       setIsPlaying(true);
       setIsMuted(false);
-      setIsOpen(false);
+      onOpenChange(false);
     } catch (err) {
       console.warn("Playback failed:", err);
     }
   };
 
-  const toggleMute = () => {
+  const toggleMute = async () => {
     const audio = audioRef.current;
     if (!audio) return;
-    audio.muted = !isMuted;
-    setIsMuted(!isMuted);
+
+    const newMuted = !isMuted;
+    audio.muted = newMuted;
+    setIsMuted(newMuted);
+
+    // If unmuting and the audio is not playing, play it
+    if (!newMuted && audio.paused) {
+      try {
+        await audio.play();
+      } catch (err) {
+        console.warn("Playback failed on unmute:", err);
+      }
+    }
   };
 
   return (
@@ -91,7 +106,6 @@ export function AudioPlayer() {
                 onClick={toggleMute}
                 size="icon"
                 className="rounded-full p-3 bg-white/90 backdrop-blur-sm hover:bg-white shadow-lg border border-rose-200 hover:border-rose-300"
-                aria-label={isMuted ? "Unmute audio" : "Mute audio"}
               >
                 <AnimatePresence mode="wait">
                   {isMuted ? (
@@ -121,7 +135,6 @@ export function AudioPlayer() {
           )}
         </AnimatePresence>
 
-        {/* Background Music */}
         <audio
           ref={audioRef}
           preload="auto"
@@ -148,7 +161,7 @@ export function AudioPlayer() {
               onClick={() => {
                 setIsMuted(true);
                 setIsReady(true);
-                setIsOpen(false);
+                onOpenChange(false);
               }}
               className="rounded-full w-16 h-16 border-gray-300 hover:border-gray-400"
             >
