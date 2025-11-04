@@ -1,5 +1,6 @@
 import { motion } from "motion/react";
 import backBgImage from "../../assets/images/invitation-Back-BG.jpg";
+import { MapPin } from "lucide-react";
 
 interface WeddingCardBackProps {
   dayOfWeek: string;
@@ -7,6 +8,7 @@ interface WeddingCardBackProps {
   timeFrom: string;
   timeTo: string;
   address: string;
+  gardenHall: string;
   poem: string;
 }
 
@@ -15,6 +17,7 @@ export function WeddingCardBack({
   timeFrom,
   timeTo,
   address,
+  gardenHall,
   poem,
 }: WeddingCardBackProps) {
   return (
@@ -62,9 +65,13 @@ export function WeddingCardBack({
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 1 }}
-          className="flex flex-row-reverse justify-center items-end gap-2 text-gray-600 text-base sm:text-lg h-full"
+          className="flex flex-col justify-end items-end gap-2 text-gray-600 h-full"
         >
-          <p>{address}</p>
+          <div className="flex items-center justify-center gap-2 py-1 w-full h-fit">
+            <MapPin />
+            <p className="text-base sm:text-lg">{gardenHall}</p>
+          </div>
+          <p className="text-sm sm:text-sm">{address}</p>
         </motion.div>
       </div>
     </div>
