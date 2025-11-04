@@ -1,5 +1,4 @@
 import { motion } from "motion/react";
-
 import frontBgImage from "../../assets/images/invitation-173-Front-BG.jpg";
 
 interface WeddingCardFrontProps {
@@ -17,60 +16,44 @@ export function WeddingCardFront({
 }: WeddingCardFrontProps) {
   return (
     <div
-      className="relative w-full h-full from-rose-50 via-pink-50 to-purple-50 rounded-2xl overflow-hidden"
+      className="relative w-full h-full rounded-2xl overflow-hidden"
       style={{
         backgroundImage: `url(${frontBgImage})`,
-        backgroundRepeat: "no-repeat",
-        backgroundPosition: "center center",
         backgroundSize: "cover",
+        backgroundPosition: "center",
       }}
     >
-      {/* Content */}
-      <div className="relative z-10 flex flex-col items-center justify-between h-full p-8 md:p-12">
-        {/* Invitation Note - Top */}
+      <div className="relative z-10 flex flex-col justify-between items-center h-full p-6 sm:p-8 md:p-10">
+        {/* Invitation Text */}
         <motion.div
-          initial={{ opacity: 0, y: -30 }}
+          initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.5 }}
-          className="text-center"
+          className="text-center text-sm sm:text-base text-rose-800 leading-relaxed whitespace-pre-line"
         >
-          <p className="text-rose-800 max-w-xs mx-auto">{invitationText}</p>
+          {invitationText}
         </motion.div>
 
-        {/* Names - Middle */}
+        {/* Names */}
         <motion.div
-          initial={{ opacity: 0, scale: 0.5 }}
+          initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 1, delay: 0.8, type: "spring" }}
-          className="flex flex-col items-center space-y-4"
+          className="text-center space-y-2 sm:space-y-3 text-black"
         >
-          <div className="relative">
-            {/* Decorative border */}
-            <div className="absolute transform rotate-1"></div>
-            <div className="absolute transform -rotate-1"></div>
-
-            <div className="relative px-8 py-6 md:px-12 md:py-8 rounded-lg">
-              <div className="text-center text-black space-y-2">
-                <p className="tangerine-bold text-7xl">{brideName}</p>
-                <div className="flex items-center justify-center space-x-3">
-                  <span className="tangerine-regular text-4xl">&</span>
-                </div>
-                <p className="tangerine-bold text-7xl">{groomName}</p>
-              </div>
-            </div>
-          </div>
+          <p className="tangerine-bold text-6xl sm:text-7xl">{brideName}</p>
+          <span className="tangerine-regular text-3xl sm:text-4xl">&</span>
+          <p className="tangerine-bold text-6xl sm:text-7xl">{groomName}</p>
         </motion.div>
 
-        {/* Date - Footer */}
+        {/* Date */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 1.1 }}
-          className="text-center"
+          className="text-center text-rose-900 text-base sm:text-lg"
         >
-          <div className="px-6 py-3 rounded-full ">
-            <p className="text-rose-900">{date}</p>
-          </div>
+          {date}
         </motion.div>
       </div>
     </div>
