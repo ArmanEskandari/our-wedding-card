@@ -54,7 +54,7 @@ function App() {
       {/* Render card content only when modal is closed */}
       {!audioModalOpen && (
         <div className="relative z-10 flex flex-col items-center justify-center w-full h-full px-3 gap-2">
-          <div className="perspective-1000 flex justify-center items-center w-full h-[80vh] sm:h-[75vh]">
+          <div className="perspective-1000 flex justify-center items-center w-full max-h-[80vh] sm:h-[75vh]">
             <motion.div
               className="relative w-[90vw] max-w-sm sm:max-w-md aspect-[3/4] md:aspect-[4/5]"
               style={{
