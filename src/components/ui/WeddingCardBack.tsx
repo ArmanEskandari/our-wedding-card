@@ -50,11 +50,11 @@ export function WeddingCardBack({
           <p>{dayOfWeek}</p>
           <div className="flex justify-center items-center gap-2 sm:gap-3">
             <div className="border-y-2 border-black flex-1 max-w-24 py-1">
-              ۱۴۰۴
+              آذر
             </div>
             <div className="text-black text-6xl sm:text-8xl">۵</div>
             <div className="border-y-2 border-black flex-1 max-w-24 py-1">
-              آذر
+              ۱۴۰۴
             </div>
           </div>
           <p className="font-vazir">{`${timeFrom} تا ${timeTo}`}</p>
