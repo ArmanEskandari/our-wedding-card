@@ -39,8 +39,25 @@ export function AudioPlayer({
     };
     tryAutoplay();
 
+    // Pause audio when tab is closed or page is refreshed
+    const handleUnload = () => {
+      audio.pause();
+    };
+
+    // Pause audio when tab is hidden (optional)
+    const handleVisibilityChange = () => {
+      if (document.hidden) {
+        audio.pause();
+      }
+    };
+
+    window.addEventListener("beforeunload", handleUnload);
+    document.addEventListener("visibilitychange", handleVisibilityChange);
+
     return () => {
       audio.pause();
+      window.removeEventListener("beforeunload", handleUnload);
+      document.removeEventListener("visibilitychange", handleVisibilityChange);
     };
   }, []);
 
