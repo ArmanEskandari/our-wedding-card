@@ -1,5 +1,5 @@
 import { motion } from "motion/react";
-import frontBgImage from "../../assets/images/invitation-173-Front-BG.jpg";
+import frontBgImage from "../../assets/images/invitation-173-Front-BG.png";
 
 interface WeddingCardFrontProps {
   brideName: string;

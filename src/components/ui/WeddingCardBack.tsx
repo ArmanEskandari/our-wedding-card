@@ -1,5 +1,5 @@
 import { motion } from "motion/react";
-import backBgImage from "../../assets/images/invitation-Back-BG.jpg";
+import backBgImage from "../../assets/images/invitation-Back-BG.png";
 import { MapPin } from "lucide-react";
 
 interface WeddingCardBackProps {

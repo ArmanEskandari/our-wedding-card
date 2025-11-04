@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { motion } from "motion/react";
-import textureBgImage from "./assets/images/flower-background.jpg";
+import textureBgImage from "./assets/images/flower-background.png";
 
 import "./App.css";
 import { WeddingCardBack } from "./components/ui/WeddingCardBack";
