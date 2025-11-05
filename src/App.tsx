@@ -18,7 +18,7 @@ function App() {
   const weddingData = {
     brideName: "Sanaz",
     groomName: "Arman",
-    invitationText: "از شما دعوت می‌کنیم،\nتا در شادی پیوندمان سهیم باشید",
+    invitationText: "ازتون دعوت می‌کنیم،\nتو شادی پیوندمون کنارمون باشید",
     // "Join us to celebrate\nthe love of",
     date: "چهارشنبه، ۵ آذر ۱۴۰۴",
     // date: "November 26, 2025",
