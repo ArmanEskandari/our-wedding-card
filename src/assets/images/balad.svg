@@ -1,9 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" style="enable-background:new 0 0 100 100"
-     xml:space="preserve"><path style="fill:#241957" d="M30.953 23.5h38.094a7.453 7.453 0 0 1 7.453 7.453v38.094a7.453 7.453 0 0 1-7.453 7.453H30.953a7.453 7.453 0 0 1-7.453-7.453V30.953a7.453 7.453 0 0 1 7.453-7.453z"/>
-    <defs><filter id="a" filterUnits="userSpaceOnUse" x="23.5" y="23.5" width="39.75" height="39.75"><feColorMatrix values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 1 0"/></filter></defs>
-    <mask maskUnits="userSpaceOnUse" x="23.5" y="23.5" width="39.75" height="39.75" id="b"><path style="fill:#fff;filter:url(#a)" d="M30.953 23.5h38.094a7.453 7.453 0 0 1 7.453 7.453v38.094a7.453 7.453 0 0 1-7.453 7.453H30.953a7.453 7.453 0 0 1-7.453-7.453V30.953a7.453 7.453 0 0 1 7.453-7.453z"/></mask>
-    <g style="mask:url(#b)"><path style="fill:#7868f6" d="M63.25 23.5V50H50.005v13.25H23.5v-26.5h13.249l.001-13.25h26.5z"/>
-        <path style="fill:#f8d748"
-              d="M50 63.25c7.318 0 13.25-5.932 13.25-13.25S57.318 36.75 50 36.75H36.75V50c0 7.318 5.932 13.25 13.25 13.25z"/>
-        <path style="fill:#ef8b32" d="M50 58.281a8.281 8.281 0 1 0 0-16.562 8.281 8.281 0 0 0 0 16.562z"/>
-        <path style="fill:#fff" d="M50 54.141a4.141 4.141 0 1 0 0-8.282 4.141 4.141 0 0 0 0 8.282z"/></g></svg>
